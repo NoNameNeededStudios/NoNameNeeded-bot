@@ -144,7 +144,7 @@ for filename in os.listdir('./cogs'):
      
     
 
-client.run("Nzg2MTY0MTY0NjkwNzA2NDYy.X9Cabw.6_KWYSQA3vRtuJT54LhG-P0WbUE")
+client.run("hahah u think token here? no fuk ur self")
 
 
 
