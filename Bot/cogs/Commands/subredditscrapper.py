@@ -38,13 +38,25 @@ class SubRedditScrapper(commands.Cog):
                             all_subs.append(submission)
 
                         random_sub = random.choice(all_subs)  
+                        if random_sub.over_18:
+                                    return "no"
+                                    random_sub = random.choice(all_subs)
 
-                        name = random_sub.title
-                        url = random_sub.url
+                                    name = random_sub.title
+                                    url = random_sub.url
 
-                        embed = discord.Embed(title= name)
-                        embed.set_image(url=url)
-                        await ctx.send(embed=embed)  
+                                    embed = discord.Embed(title= name)
+                                    
+                                    await ctx.send(embed=embed)
+                                    await ctx.send(url) 
+                        else:  
+                            name = random_sub.title
+                            url = random_sub.url
+
+                            embed = discord.Embed(title= name)
+                            
+                            await ctx.send(embed=embed)
+                            await ctx.send(url)  
 
     @commands.command(aliases=["r/search", "reddit/search"])
     async def VMKSwmwfjuwi(self,ctx,subreddit=None,*,what_to_search_for=None):
@@ -63,23 +75,69 @@ class SubRedditScrapper(commands.Cog):
                     elif what_to_search_for in bad_subs:
                         await ctx.send("naughty naughty, and no")   
                     else:
-                        all_subs = []
-                        for submission in reddit.subreddit("all").search(f"{subreddit} {what_to_search_for}"):
-                            all_subs.append(submission)
 
-                        random_sub = random.choice(all_subs)  
+                           
 
-                        name = random_sub.title
-                        url = random_sub.url
+                            all_subs = []
+                            for submission in reddit.subreddit("all").search(f"{subreddit} {what_to_search_for}"):
+                                all_subs.append(submission)
 
-                        embed = discord.Embed(title= name)
-                        embed.set_image(url=url)
-                        await ctx.send(embed=embed)  
+                            random_sub = random.choice(all_subs)  
+
+                            if random_sub.over_18:
+                                    return "no"
+                                    random_sub = random.choice(all_subs)
+                                    name = random_sub.title
+                                    url = random_sub.url
+
+                                    embed = discord.Embed(title= name)
+                                    
+                                    await ctx.send(embed=embed)
+                                    await ctx.send(url)  
+                            else:     
+
+
+                                name = random_sub.title
+                                url = random_sub.url
+
+                                embed = discord.Embed(title= name)
+                                
+                                await ctx.send(embed=embed)
+                                await ctx.send(url)
+                    
 
          
 
 
+    @commands.command(aliases=["r/random", "reddit/random"])
+    async def KkcwkmkMCNjhwmcnJ(self,ctx):
+                        all_subs = []
+                        for submission in reddit.subreddit("all").top():
+                            all_subs.append(submission)
 
+ 
+                        random_sub = random.choice(all_subs)  
+                        if random_sub.over_18:
+                                    return "no"
+                                    random_sub = random.choice(all_subs) 
+                                    name = random_sub.title
+                                    url = random_sub.url
+
+                                    embed = discord.Embed(title= name)
+                                    
+                                    await ctx.send(embed=embed)
+                                    await ctx.send(url)
+                        else: 
+
+                            name = random_sub.title
+                            url = random_sub.url
+
+                            embed = discord.Embed(title= name)
+                            
+                            await ctx.send(embed=embed)
+                            await ctx.send(url)
+                    
+    
 
 
 
