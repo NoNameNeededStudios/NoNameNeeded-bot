@@ -17,7 +17,7 @@ INVITE URL: https://discord.com/api/oauth2/authorize?client_id=78616416469070646
 
 # Praw Sample Code
 <h3> Praw is used to web scrape reddit and in this we will give you code to scrape some reddit memes</h3>
-<h2>This is for discord.py but can be changed for normal</h2>
+<h4>This is for discord.py but can be changed</h4>
 
 ```#DISCORD.PY COGGED
 
