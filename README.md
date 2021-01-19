@@ -12,3 +12,88 @@ This branch is for beta commands and for members to post their code for the bot!
 We really would like it if you invite our bot No Name Needed, that helps out tons and makes me more motivated to make NNN Bot!
 
 INVITE URL: https://discord.com/api/oauth2/authorize?client_id=786164164690706462&permissions=2147483639&scope=bot
+
+
+
+# Praw Sample Code
+<h3> Praw is used to web scrape reddit and in this we will give you code to scrape some reddit memes</h3>
+
+```#DISCORD.PY COGGED
+
+from cogs.imports import *
+import praw
+
+reddit = praw.Reddit(client_id = "",
+        client_secret = "", username = "",
+        password = ""(", user_agent = "")
+class meme(commands.Cog):
+
+    def __init__(self, client):
+        self.client = client
+
+    @commands.command(aliases=["memes"])
+    async def meme(self,ctx):
+
+                        subredditchoser = random.randint(1,2)
+
+                        if subredditchoser == 1:
+                            subreddit = "dankmemes"
+                        else:
+                            subreddit = "memes"  
+                        subreddit = reddit.subreddit(subreddit)
+
+       
+                        typess = ["top", "new", "hot"]
+
+                        types = random.choice(typess)
+                 
+                        all_subs = []
+                        
+                        if types == "top":
+                            typeOFREDDIT = subreddit.top(limit= 50)
+                            print("top")
+
+                        elif types == "new":
+                            typeOFREDDIT = subreddit.new(limit= 50)
+                            print("new")
+
+                        elif types == "hot":
+                            typeOFREDDIT = subreddit.hot(limit= 50)    
+                            print("hot")
+
+                        else:
+                            pass
+                            return await ctx.send("something went wrong")    
+                            raise 
+
+
+                        for submission in typeOFREDDIT:
+                            all_subs.append(submission)
+
+                        random_sub = random.choice(all_subs)  
+                        if random_sub.over_18:
+                                    return "no"
+                                    random_sub = random.choice(all_subs)
+
+                                    name = random_sub.title
+                                    url = random_sub.url
+
+                                    embed = discord.Embed(title= name)
+                                    
+                                    await ctx.send(embed=embed)
+                                    await ctx.send(url) 
+                        else:  
+                            name = random_sub.title
+                            url = random_sub.url
+
+                            embed = discord.Embed(title= name)
+                            
+                            await ctx.send(embed=embed)
+                            await ctx.send(url)  
+
+
+def setup(client):
+    client.add_cog(meme(client))
+
+
+```
