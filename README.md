@@ -1,11 +1,11 @@
 # NoNameNeeded-bot
-The Brand new NNN bot, which has alot of features, more than you think!
+The Brand new NNN bot, which has a lot of features, more than you think!
 
 
-# Soruce Code
-You can use the soruce code to help you make commands that you want, please do not steal all of it and not credit us, since thats mean :)
+# Source Code
+You can use the source code to help you make commands that you want, please do not steal all of it and not credit us, since thats mean :)
 
-# Developement Branch
+# Development Branch
 This branch is for beta commands and for members to post their code for the bot! To join, please go to https://discord.gg/bQMbMj32
 
 # Invite
@@ -34,7 +34,6 @@ class meme(commands.Cog):
 
     @commands.command(aliases=["memes"])
     async def meme(self,ctx):
-
                         subredditchoser = random.randint(1,2)
 
                         if subredditchoser == 1:
@@ -73,16 +72,7 @@ class meme(commands.Cog):
 
                         random_sub = random.choice(all_subs)  
                         if random_sub.over_18:
-                                    return "no"
-                                    random_sub = random.choice(all_subs)
-
-                                    name = random_sub.title
-                                    url = random_sub.url
-
-                                    embed = discord.Embed(title= name)
-                                    
-                                    await ctx.send(embed=embed)
-                                    await ctx.send(url) 
+                                    await ctx.send("No, try again") 
                         else:  
                             name = random_sub.title
                             url = random_sub.url
@@ -95,6 +85,4 @@ class meme(commands.Cog):
 
 def setup(client):
     client.add_cog(meme(client))
-
-
 ```
