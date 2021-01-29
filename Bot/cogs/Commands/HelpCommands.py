@@ -1,9 +1,7 @@
 from cogs.imports import *
 
-Bank = "./Jsons/mainbank.json"
-Pets = "./Jsons/pets.json"
 
-em_colors = [discord.Colour.red, discord.Colour.blue ,  discord.Colour.green, discord.Colour.orange, discord.Colour.gold, discord.Colour.dark_orange, discord.Colour.dark_blue, discord.Colour.purple, discord.Colour.dark_magenta]
+em_colors = [discord.Color.red, discord.Color.blue ,  discord.Color.green, discord.Color.orange, discord.Color.gold, discord.Color.dark_orange, discord.Color.dark_blue, discord.Color.purple, discord.Color.dark_magenta]
 
 class HelpCommands(commands.Cog):
 
@@ -34,9 +32,16 @@ class HelpCommands(commands.Cog):
     @commands.command(aliases=["help Super Secert", "help ss"])
     async def ss(self,ctx):
         embed = discord.Embed(title="Secret Commands", description="All Weird Commands")
-        embed.add_field(name="Super Secrert, lol no", value=" > ***8BALL:crystal_ball:*** do `n!8ball <the question>` to talk to a magic ball with magically answers \n > \n > ***kill:knife:*** do `n!kill <mention_member>` and kill them with some intersting ways \n > \n > ***ping <a:4a26aa20e8a54406b3b8a72b3d10132d:797114328956010515>*** do `n!ping` to find this bot's sexy ping! \n > \n > ***roll*** no emoji lol do `n!roll` and roll, this is the most useless command by far ")
+        embed.add_field(name="Super Secrert, lol no", value=" > ***8BALL:crystal_ball:*** do `n!8ball <the question>` to talk to a magic ball with magically answers \n > \n > ***kill:knife:*** do `n!kill <mention_member>` and kill them with some intersting ways \n > \n > ***ping <a:4a26aa20e8a54406b3b8a72b3d10132d:797114328956010515>*** do `n!ping` to find this bot's sexy ping! \n > \n > ***roll*** no emoji lol do `n!roll` and roll, this is the most useless command by far \n > \n > ServerInfo<:Info:798166430121984070> do `n!server info` to get that server info, also showing the owner is glitched, blame discord ")
         embed.set_footer(text=f"Requested by {ctx.author}", icon_url = ctx.author.avatar_url)
         await ctx.send(embed=embed)
+
+    @commands.command(aliases=["help reddit", "help r", "r/help"])
+    async def reddit(self,ctx):
+        embed = discord.Embed(title="Reddit Commands <:309459767758290944:798302035656572948>", description="All Reddit Commands")
+        embed.add_field(name="Reddit", value=" > ***Submissions <:309459767758290944:798302035656572948>*** do `n!r/ <subbreddit> <top/new/hot>` to see a submission from that post \n > \n > ***r/search <:309459767758290944:798302035656572948>  *** do `n!r/search <subreddit> <what you want to search for>` to find a post in a subreddit related to what you want to find! \n > \n >  *** r/random <:309459767758290944:798302035656572948> *** Do `n!r/random` to find werid random reddit posts ")
+        embed.set_footer(text=f"Requested by {ctx.author}", icon_url = ctx.author.avatar_url)
+        await ctx.send(embed=embed)    
 
 
     @commands.command(aliases=["mods", "mod commands", "moderation commands"])
@@ -93,6 +98,7 @@ class HelpCommands(commands.Cog):
                     em.add_field(name= "**Fun Commands💡**\n" ,value = f"Do `{prefix}fun`") 
                     em.add_field(name= "**NSFW Commands:peach:**\n" ,value = f"Do `{prefix}nsfw`") 
                     em.add_field(name="**Moderation Commands:tools:**\n",value = f"Do `{prefix}mod`")
+                    em.add_field(name="**Reddit Commands** <:309459767758290944:798302035656572948> \n",value = f"Do `{prefix}r/help`")  
                     em.add_field(name="**Supa Secret Commands:question:**\n",value = f"Do `{prefix}ss`")
                     em.add_field(name="**Extras Commands**❓\n",value = f"Do `{prefix}es/extras`")  
                     em.set_footer(text=f"Requested by {message.author}", icon_url = message.author.avatar_url) 
