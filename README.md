@@ -6,7 +6,7 @@ The Brand new NNN bot, which has a lot of features, more than you think!
 You can use the source code to help you make commands that you want, please do not steal all of it and not credit us, since thats mean :)
 
 # Development Branch
-This branch is for beta commands and for members to post their code for the bot! To join, please go to https://discord.gg/bQMbMj32
+This branch is for beta commands and for members to post their code for the bot! To join, please go to https://discord.gg/dTgqt3J6zR
 
 # Invite
 We really would like it if you invite our bot No Name Needed, that helps out tons and makes me more motivated to make NNN Bot!
