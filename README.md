@@ -24,63 +24,64 @@ INVITE URL: https://discord.com/api/oauth2/authorize?client_id=78616416469070646
 from cogs.imports import *
 import praw
 
-reddit = praw.Reddit(client_id = "",
-        client_secret = "", username = "",
-        password = ""(", user_agent = "")
-class meme(commands.Cog):
+reddit = praw.Reddit(
+        client_id = "",
+        client_secret = "", 
+        username = "",
+        password = "", 
+        user_agent = ""
+)
 
+class meme(commands.Cog):
     def __init__(self, client):
         self.client = client
 
     @commands.command(aliases=["memes"])
     async def meme(self,ctx):
-                        subredditchoser = random.randint(1,2)
+        if random.randint(1,2) == 1:
+            subreddit = "dankmemes"
+        else:
+            subreddit = "memes"  
 
-                        if subredditchoser == 1:
-                            subreddit = "dankmemes"
-                        else:
-                            subreddit = "memes"  
-                        subreddit = reddit.subreddit(subreddit)
+        subreddit = reddit.subreddit(subreddit)
 
-       
-                        typess = ["top", "new", "hot"]
+        typess = ["top", "new", "hot"]
 
-                        types = random.choice(typess)
-                 
-                        all_subs = []
-                        
-                        if types == "top":
-                            typeOFREDDIT = subreddit.top(limit= 50)
-                            print("top")
+        types = random.choice(typess)
 
-                        elif types == "new":
-                            typeOFREDDIT = subreddit.new(limit= 50)
-                            print("new")
+        all_subs = []
 
-                        elif types == "hot":
-                            typeOFREDDIT = subreddit.hot(limit= 50)    
-                            print("hot")
+        if types == "top":
+            typeOFREDDIT = subreddit.top(limit= 50)
+            print("top")
 
-                        else:
-                            pass
-                            return await ctx.send("something went wrong")    
-                            raise 
+        elif types == "new":
+            typeOFREDDIT = subreddit.new(limit= 50)
+            print("new")
 
+        elif types == "hot":
+            typeOFREDDIT = subreddit.hot(limit= 50)    
+            print("hot")
 
-                        for submission in typeOFREDDIT:
-                            all_subs.append(submission)
+        else:
+            pass
+            return await ctx.send("something went wrong")    
+            raise 
 
-                        random_sub = random.choice(all_subs)  
-                        if random_sub.over_18:
-                                    await ctx.send("No, try again") 
-                        else:  
-                            name = random_sub.title
-                            url = random_sub.url
+        for submission in typeOFREDDIT:
+            all_subs.append(submission)
 
-                            embed = discord.Embed(title= name)
-                            
-                            await ctx.send(embed=embed)
-                            await ctx.send(url)  
+        random_sub = random.choice(all_subs)  
+        if random_sub.over_18:
+            await ctx.send("No, try again") 
+        else:  
+            name = random_sub.title
+            url = random_sub.url
+
+            embed = discord.Embed(title= name)
+
+            await ctx.send(embed=embed)
+            await ctx.send(url)  
 
 
 def setup(client):
