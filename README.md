@@ -64,9 +64,8 @@ class meme(commands.Cog):
             print("hot")
 
         else:
-            pass
             return await ctx.send("something went wrong")    
-            raise 
+            raise Exception("Smth SUS happened")
 
         for submission in typeOFREDDIT:
             all_subs.append(submission)
